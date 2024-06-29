@@ -1,0 +1,28 @@
+{
+  "name": "pixroom-graphql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "dev": "babel-node src/server.js",
+    "start": "node build/server.js",
+    "build": "babel src -d build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.24.1",
+    "@babel/core": "^7.24.4",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.24.4",
+    "@graphql-yoga/redis-event-target": "^3.0.0",
+    "axios": "^1.6.8",
+    "babel-plugin-import-graphql": "^2.8.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "graphql": "^16.8.1",
+    "graphql-yoga": "^5.3.0",
+    "ioredis": "^5.4.1"
+  }
+}

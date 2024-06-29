@@ -1,0 +1,53 @@
+type Device {
+  serialNumber: String
+  deviceName: String
+  ipAddress: String
+  department: String
+  locationName: String
+  contactPerson: String
+  resolution: String
+  spaceName: String
+  theme: String
+  orientation: String
+  deviceStatus: Int
+}
+
+input PlayerManagementRequest {
+  serialNumber: String
+  deviceName: String
+  ipAddress: String
+  department: String
+  locationName: String
+  contactPerson: String
+  resolution: String
+  spaceName: String
+  theme: String
+  orientation: String
+  deviceStatus: Int
+}
+
+type PlayerManagementResponse {
+  data: Device
+  statusCode: Int
+  status: Boolean
+  message: String
+}
+
+type GetPlayerManagementResponse {
+  data: Device
+  statusCode: Int
+  status: Boolean
+  message: String
+}
+
+type Query {
+  getDevices: GetPlayerManagementResponse
+}
+
+type Mutation {
+  createPlayerDevice(request: PlayerManagementRequest): PlayerManagementResponse
+}
+
+type Subscription {
+  getDevicesLive: GetPlayerManagementResponse
+}

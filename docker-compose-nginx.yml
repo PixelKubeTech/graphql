@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  redis:
+    image: 'redislabs/redismod'
+    container_name: redis
+    hostname: redis
+    ports:
+      - '6379:6379'
+  graphql-server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: graphql-server
+    hostname: graphql-server
+    restart: unless-stopped
+    depends_on:
+      - redis
+    ports:
+      - "4000:4000"
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - graphql-server
+
